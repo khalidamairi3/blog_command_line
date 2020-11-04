@@ -42,7 +42,7 @@ except mariadb.Error as e:
 
 
 cursor = conn.cursor()
-
+#user table includes username, password and id and the username is unique. so query will return either 0 or 1 row   
 cursor.execute("SELECT password FROM user WHERE user.username=?",[user])
 temppass = cursor.fetchall()
 if len(temppass)> 0:
